@@ -1,0 +1,34 @@
+\name{danielsson}
+\alias{danielsson}
+\title{
+A Double Bootstrap Procedure for Choosing the Optimal Sample Fraction
+}
+\description{
+An Implementation of the procedure proposed in Danielsson et al. (2001) for selecting the optimal sample fraction in tail index estimation.
+}
+\usage{
+danielsson(data, B = 500, epsilon = 0.9)
+}
+\arguments{
+  \item{data}{vector of sample data}
+  \item{B}{number of Bootstrap replications.}
+  \item{epsilon}{gives the amount of the first resampling size \code{n1} by choosing \code{n1 = n^epsilon}. Default is set to \code{epsilon=0.9}}
+}
+\details{
+The Double Bootstrap procedure simulates the AMSE criterion of the Hill estimator using an auxiliary statistic. Minimizing this statistic gives a consistent estimator of the sample fraction \code{k/n} with \code{k} the optimal number of upper order statistics. This number, denoted \code{k0} here, is equivalent to the number of extreme values or, if you wish, the number of exceedances in the context of a POT-model like the generalized Pareto distribution. \code{k0} can then be associated with the unknown threshold \code{u} of the GPD by choosing \code{u} as the \code{n-k0}th upper order statistic. For more information see references.
+}
+\value{
+  \item{second.order.par}{gives an estimation of the second order parameter \code{rho}.}
+  \item{k0}{optimal number of upper order statistics, i.e. number of exceedances or data in the tail}
+  \item{threshold}{the corresponding threshold}
+  \item{tail.index}{the corresponding tail index}
+ }
+\references{
+Danielsson, J. and Haan, L. and Peng, L. and Vries, C.G. (2001)
+Using a bootstrap method to choose the sample fraction in tail index estimation.
+\emph{Journal of Multivariate analysis}, \bold{2}, 226-248.
+}
+\examples{
+data=rexp(100)
+danielsson(data)
+}

@@ -1,0 +1,5 @@
+exportPattern("^[[:alpha:]]+")
+importFrom("eva","rgpd","qgpd","gpdFit","pSeqStop")
+importFrom("graphics", "abline", "lines", "par", "plot")
+importFrom("stats", "complete.cases", "lm", "median", "pchisq",
+             "pnorm", "ppoints", "qnorm", "quantile", "sd")
