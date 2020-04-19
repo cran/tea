@@ -1,3 +1,21 @@
+#' A Single Bootstrap Procedure for Choosing the Optimal Sample Fraction
+#'
+#' An Implementation of the procedure proposed in Caeiro & Gomes (2012) for selecting the optimal sample fraction in tail index estimation
+#' @param data vector of sample data
+#' @param B number of Bootstrap replications
+#' @param epsilon gives the amount of the first resampling size \code{n1} by choosing \code{n1 = n^epsilon}. Default is set to \code{epsilon=0.955}
+#' @details This procedure is an improvement of the one introduced in Hall (1990) by overcoming the restrictive assumptions through estimation of the necessary parameters. The Bootstrap procedure simulates the AMSE criterion of the Hill estimator using an auxiliary statistic. Minimizing this statistic gives a consistent estimator of the sample fraction \code{k/n} with \code{k} the optimal number of upper order statistics. This number, denoted \code{k0} here, is equivalent to the number of extreme values or, if you wish, the number of exceedances in the context of a POT-model like the generalized Pareto distribution. \code{k0} can then be associated with the unknown threshold \code{u} of the GPD by choosing \code{u} as the \code{n-k0}th upper order statistic. For more information see references.
+#' @return
+#' \item{second.order.par}{gives an estimation of the second order parameter \code{rho}.}
+#' \item{k0}{optimal number of upper order statistics, i.e. number of exceedances or data in the tail}
+#' \item{threshold}{the corresponding threshold}
+#' \item{tail.index}{the corresponding tail index}
+#' @references Hall, P. (1990). Using the Bootstrap to Estimate Mean Squared Error and Select Smoothing Parameter in Nonparametric Problems. \emph{Journal of Multivariate Analysis}, \bold{32}, 177--203.
+#' @references Caeiro, F. and Gomes, M.I. (2014). On the bootstrap methodology for the estimation of the tail sample fraction. \emph{Proceedings of COMPSTAT}, 545--552.
+#' @examples
+#' data(danish)
+#' Himp(danish)
+#' @export
 Himp <-
 function(data,B=1000,epsilon=0.955){
 n=length(data)

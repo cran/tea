@@ -12,15 +12,15 @@ This package contains implementations of many of the threshold estimation approa
 \tabular{ll}{
 Package: \tab tea\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2017-01-02\cr
-License: \tab GPL-2\cr
+Version: \tab 1.1\cr
+Date: \tab 2020-04-17\cr
+License: \tab GPL-3\cr
 }
 }
 \author{
 Johannes Ossberger
 
-Maintainer: Johannes Ossberger <johannes.ossberger@fau.de>
+Maintainer: Johannes Ossberger <johannes.ossberger@gmail.com>
 }
 \references{
 Caeiro and Gomes (2016) <doi:10.1201/b19721-5>
